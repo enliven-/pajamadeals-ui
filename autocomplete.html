@@ -52,7 +52,7 @@
       <div class="row wrapper ?border-bottom ?white-bg ?page-heading">
 
 
-        <div class="row col-md-12 animated fadeInRight" style="margin-left: 10px; margin-right: 10px;">
+        <div class="row col-md-12 ?animated ?fadeInRight" style="margin-left: 10px; margin-right: 10px;">
           <div class="row col-lg-8 col-lg-offset-2 search-bar" style="">
             <div class="input-group m-b">
               <input type="text" placeholder="Search by title or isbn" class="form-control" id="search-box"> <span class="input-group-btn">
@@ -63,10 +63,10 @@
           </div>
         </div>
 
-        <div class="row col-md-12 animated fadeInRight" style="margin-left: 10px; margin-right: 10px;">
+        <div class="row col-md-12 ?animated ?fadeInRight" style="margin-left: 10px; margin-right: 10px;">
 
 
-          <div class="col-md-4 search-result" style="display: none;" >
+          <div class="col-md-4 search-result animated fadeInUp hidden" >
             <div class="ibox float-e-margins">
               <div class="ibox-title title">
                 <h5>Intro to Algorithms</h5>
@@ -439,6 +439,11 @@
       search: function(event, ui) {
         $("div.search-result").slideUp();
         $("div.item-info").slideUp();
+        // $("div.search-result").addClass("fadeOutDown");  
+        // $("div.search-result").addClass("hidden");
+        // $("div.item-info").addClass("hidden");
+
+
       }, 
       focus: function (event, ui) {
         $("#search-box").val(ui.item.label);
@@ -446,7 +451,8 @@
       },
       select: function (event, ui) {
         console.log("selected");
-        $("div.search-result").slideDown();
+        // $("div.search-result").slideDown();
+        $("div.search-result").removeClass("hidden");
 
         $("#search-box").val("");
         return false;
